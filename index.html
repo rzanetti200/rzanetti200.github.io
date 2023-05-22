@@ -1,102 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Robert's Coding Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Robert's Portfolio</title>
+  <style>
+    /* Basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
 
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5;
-            padding: 50px;
-            color: #333;
-        }
+    .portfolio {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+      animation: slideIn 2s forwards;
+      opacity: 0;
+    }
 
-        h1 {
-            color: #37474F;
-            font-weight: 700;
-            font-size: 36px;
-            margin-bottom: 40px;
-        }
+    .project {
+      margin-bottom: 2em;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      animation: slideIn 2s forwards;
+      animation-delay: 0.5s;
+    }
 
-        .comment-box {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 20px;
-        }
+    /* Animation */
+    @keyframes slideIn {
+      from {
+        transform: translateX(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
 
-        .comment-box input, .comment-box textarea {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            resize: none;
-            margin-bottom: 10px;
-            font-size: 16px;
-            font-family: 'Roboto', sans-serif;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .comment-box button {
-            padding: 10px;
-            background-color: #546E7A;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-weight: 500;
-        }
-
-        .comment-box button:hover {
-            background-color: #455A64;
-        }
-
-        .comment {
-            padding: 15px;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-
-        .comment-author {
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-    </style>
+    /* Other styling... */
+    /* ... */
+  </style>
 </head>
 <body>
-    <h1>Robert's Coding Portfolio</h1>
-    <div id="comment-container"></div>
-    <div class="comment-box">
-        <input id="comment-author" type="text" placeholder="Your Name">
-        <textarea id="comment-input" placeholder="Comment your thoughts or critiques..."></textarea>
-        <button id="add-comment">Send Comment</button>
+  <div class="portfolio">
+    <h1>Robert's Projects</h1>
+    <div class="project">
+      <h2>Project Name 1</h2>
+      <img src="project1.png" alt="Project 1 screenshot">
+      <p>This is a brief description of Project 1. It was built using HTML, CSS, and JavaScript.</p>
+      <a href="https://www.project1.com" target="_blank">View Live Project</a>
+      <a href="https://github.com/robert/project1" target="_blank">View Source Code</a>
     </div>
-    
-    <script>
-        document.getElementById('add-comment').addEventListener('click', function() {
-            const commentAuthor = document.getElementById('comment-author');
-            const commentInput = document.getElementById('comment-input');
-            const commentText = commentInput.value.trim();
-            const authorText = commentAuthor.value.trim();
-            if (commentText !== '' && authorText !== '') {
-                const commentEl = document.createElement('div');
-                const authorEl = document.createElement('p');
-                commentEl.className = 'comment';
-                authorEl.className = 'comment-author';
-                authorEl.textContent = authorText + ':';
-                commentEl.textContent = commentText;
-                const container = document.getElementById('comment-container');
-                container.appendChild(authorEl);
-                container.appendChild(commentEl);
-                commentInput.value = '';
-                commentAuthor.value = '';
-            }
-        });
-    </script>
+    <div class="project">
+        <h2>Project Name 2</h2>
+        <img src="project1.png" alt="Project 1 screenshot">
+        <p>This is a brief description of Project 1. It was built using HTML, CSS, and JavaScript.</p>
+        <a href="https://www.project1.com" target="_blank">View Live Project</a>
+        <a href="https://github.com/robert/project1" target="_blank">View Source Code</a>
+      </div>
+    <!-- More projects go here -->
+  </div>
 </body>
 </html>
