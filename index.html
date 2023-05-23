@@ -46,16 +46,22 @@
     /* Buttons styling */
     .intro a {
       display: inline-block;
+      margin-right: 10px; /* Add right margin to create space */
       padding: 10px 20px;
       color: #fff;
       background-color: #333;
       border-radius: 5px;
       text-decoration: none;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .intro a:last-child {
+      margin-right: 0; /* Remove right margin for the last button */
     }
 
     .intro a:hover {
       background-color: #555;
+      transform: scale(1.1);
     }
 
     /* Animations */
@@ -95,8 +101,9 @@
   <div class="background second"></div>
   <div class="intro">
     <h1>Welcome to Robert's Portfolio</h1>
-    <p>Hello! I'm Robert, a soon to be graduate of James Madison University.  </p>
+    <p>Hello! I'm Robert, a soon-to-be graduate of James Madison University.</p>
     <a href="projects.html" target="_blank">View My Projects</a>
+    <a href="robert_zanetti_resume.pdf" target="_blank">View My Resume</a>
   </div>
 </body>
 </html>
