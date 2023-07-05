@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Robert's Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-kF9nq2u7/9vfoaDcP2vNXWe6FibEXbW1wBlL1yvxEN0x8oskxPaZsJhK9F2tsRUK" crossorigin="anonymous">
   <style>
     /* Basic styling */
     body {
@@ -64,8 +65,20 @@
       transform: scale(1.1);
     }
 
-    /* Animations */
-    @keyframes slideIn {
+    /* Icons styling */
+    .icon-link {
+      font-size: 24px;
+      color: #333;
+      margin: 10px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .icon-link:hover {
+      color: #555;
+      transform: scale(1.5);
+    }
+        /* Animations */
+        @keyframes slideIn {
       from {
         transform: translateX(-50px);
         opacity: 0;
@@ -104,6 +117,18 @@
     <p>Hello! I'm Robert, a soon-to-be graduate of James Madison University.</p>
     <a href="projects.html" target="_blank">View My Projects</a>
     <a href="robert_zanetti_resume.pdf" target="_blank">View My Resume</a>
+    
+    <!-- GitHub and Gmail Icons -->
+    <div>
+      <a href="https://github.com/yourusername" target="_blank" class="icon-link">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="mailto:your-email@gmail.com" target="_blank" class="icon-link">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
   </div>
 </body>
 </html>
+
+
