@@ -2,108 +2,23 @@
 <html>
 <head>
   <title>Robert's Portfolio</title>
-  <style>
-    /* Menu styling */
-    .menu {
-      background-color: #333;
-      padding: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .menu h1 {
-      color: #fff;
-      margin: 0;
-    }
-
-    .menu a {
-      color: #fff;
-      background-color: #555;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .menu a:hover {
-      background-color: #777;
-      transform: scale(1.1);
-    }
-    .project img {
-      max-width: 90%; /* You can adjust this percentage to your liking */
-      max-height: 400px; /* You can adjust the max height too */
-      display: block;
-      margin: 10px auto; /* Top/bottom margin of 10px and auto left/right for centering */
-    }
-    /* Basic styling */
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      background-image: url('JS.webp'); /* Replace 'background-photo.jpg' with the path to your background image */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    .portfolio {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 20px;
-      animation: slideIn 2s forwards;
-      opacity: 0;
-    }
-
-    .project {
-      margin-bottom: 2em;
-      padding: 20px;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      opacity: 0;
-      animation: slideIn 2s forwards;
-      animation-delay: 0.5s;
-    }
-
-    /* Buttons styling */
-    .project a {
-      display: inline-block;
-      margin-right: 10px;
-      padding: 10px 20px;
-      color: #fff;
-      background-color: #333;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.3s ease;;
-    }
-
-    .project a:hover {
-      background-color: #555;
-      transform: scale(1.1);
-    }
-
-    /* Animation */
-    @keyframes slideIn {
-      from {
-        transform: translateX(-50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
   <div class="menu">
     <h1>Roberts Projects</h1>
     <a href="index.html">Home</a>
+  </div>
+
+  <div class="filter">
+    
+    <select id="tags" name="tags" class="dropdown">
+      <option value="">All</option>
+      <option value="Javascript">Javascript</option>
+      <option value="Python">Python</option>
+      <option value="Java">Java</option>
+      <!-- Add more options as needed -->
+    </select>
   </div>
 
   <!-- Portfolio -->
@@ -113,7 +28,7 @@
   </div>
   <div class="portfolio">
     
-    <div class="project">
+    <div class="project" data-tag="Javascript">
       <h2>Job Portal web app</h2>
       <p>Recruiters view:</p>
       <img src="recruiters.png" alt="Project 1 screenshot">
@@ -123,14 +38,14 @@
       <a href="https://www.project1.com" target="_blank">View Demo</a>
       <a href="https://github.com/rzanetti200/Job-Portal" target="_blank">View Source Code</a>
     </div>
-    <div class="project">
+    <div class="project" data-tag="Python">
         <h2>Wikipedia-Web-Scraper</h2>
         <!--<img src="project1.png" alt="Project 1 screenshot">-->        
         <p>This script extracts text content and image links from a given Wikipedia page, counts the frequency of words within the text, and saves the results to a CSV file. It makes an HTTP request to fetch the Wikipedia page's HTML, and utilizes BeautifulSoup to parse and extract paragraphs and image tags. The word frequencies are calculated by tokenizing the text and counting occurrences of each word, after removing non-alphanumeric characters. Finally, the script writes the total word count, the top N word frequencies, and the image links to an output CSV file.</p>
         <a href="https://github.com/rzanetti200/Wikipedia-web-scraper" target="_blank">View Source Code</a>
       </div>
 
-      <div class="project">
+      <div class="project" data-tag="Java">
         <h2>Java Improved Merge sort</h2>
         <!--<img src="project1.png" alt="Project 1 screenshot">-->        
         <p>Created a custom Merge Sort algorithm in Java that used Insertion sort on small sub-arrays and Merge Sort with multithreading on larger arrays. Repository is private because this was a school project but ill explain/demo it upon request from a recruiter.</p>
@@ -138,5 +53,22 @@
 
     <!-- More projects go here -->
   </div>
+
+  <!-- Dropdown functions -->
+  <script>
+    document.getElementById('tags').addEventListener('change', function(e) {
+        var value = e.target.value;
+        var projects = document.getElementsByClassName('project');
+        
+        for (var i = 0; i < projects.length; i++) {
+            var project = projects[i];
+            if (value == '' || project.getAttribute('data-tag') == value) {
+                project.style.display = 'block';
+            } else {
+                project.style.display = 'none';
+            }
+        }
+    });
+  </script>
 </body>
 </html>
